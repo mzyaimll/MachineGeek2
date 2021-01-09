@@ -1,6 +1,51 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+const fs = require("fs")
+const path = require("path")
 
-export default defineConfig({
-  plugins: [vue()]
-})
+// Dotenv 是一个零依赖的模块，它能将环境变量中的变量从 .env 文件加载到 process.env 中
+const dotenv = require("dotenv")
+
+const envFiles = [
+  /** default file */ `.env`,
+  /** mode file */ `.env.${process.env.NODE_ENV}`
+]
+
+for (const file of envFiles) {
+  const envConfig = dotenv.parse(fs.readFileSync(file))
+  for (const k in envConfig) {
+    process.env[k] = envConfig[k]
+  }
+}
+
+module.exports = {
+  alias: {
+    '/@/': path.resolve(__dirname, './src')
+  },
+  proxy: {
+    api: {
+      target: "http://www.skillnull.com",
+      changeOrigin: true,
+      rewrite: path => path.replace(/^\/api/, "")
+    }
+  },
+  hostname: process.env.VITE_HOST,
+  port: process.env.VITE_PORT,
+  // 引用全局 scss
+  cssPreprocessOptions: {
+    scss: {
+      additionalData: '@import "./src/assets/style/index.scss";'
+    }
+  },
+  // 压缩
+  minify: 'esbuild',
+  // 是否自动在浏览器打开
+  open: false,
+  // 是否开启 https
+  https: false,
+  // 服务端渲染
+  ssr: false,
+  //Base public path when served in production.
+  base: process.env.VITE_BASE_URL,
+  //out put dir
+  outDir: process.env.VITE_OUTPUT_DIR,
+  // 反向代理
+}
