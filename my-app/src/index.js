@@ -1,73 +1,81 @@
 /*
  * @Autor: GeekMzy
- * @Date: 2021-01-16 12:22:04
+ * @Date: 2021-01-29 14:41:08
  * @LastEditors: GeekMzy
- * @LastEditTime: 2021-01-25 13:48:26
+ * @LastEditTime: 2021-01-29 15:15:55
  * @FilePath: /MachineGeek2/my-app/src/index.js
  */
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-class Square extends React.Component {
+
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+
+class LikeButton extends Component {
+  static defaultProps = {
+    likedText: '取消',
+    unLikedText: '点赞'
+  }
+  constructor() {
+    super()
+    this.state = { isLiked: false }
+  }
+
+  handleClickOnLikeButton () {
+    //非及时更新
+    this.setState({
+      isLiked: !this.state.isLiked
+    })
+    if (this.props.onClick) {
+      this.props.onClick()
+    }
+    // //及时更新
+    // this.setState((prev) => {
+    //   return {
+    //     isLiked: !this.state.isLiked
+    //   }
+    // })
+  }
   render () {
+    // const likedText = this.props.likedText || '取消'
+    // const unLikedText = this.props.unLikedText || '点赞'
     return (
-      <button className="square">
-        {/* TODO */}
+      <button onClick={this.handleClickOnLikeButton.bind(this)}>
+        {this.state.isLiked ? this.props.likedText : this.props.unLikedText}👍
       </button>
-    );
+    )
   }
 }
 
-class Board extends React.Component {
-  renderSquare (i) {
-    return <Square />;
+class Index extends Component {
+  constructor() {
+    super()
+    this.state = {
+      likedText: '已赞',
+      unLikedText: '赞',
+    }
+  }
+  handleClickOnLikeButton () {
+    this.setState({
+      likedText: '取消',
+      unLikedText: '点赞'
+    })
   }
 
   render () {
-    const status = 'Next player: X';
-
     return (
       <div>
-        <div className="status">{status}</div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
+        <LikeButton likedText={this.state.likedText} unLikedText={this.state.unLikedText} />
+        <div>
+          <button onClick={this.handleClickOnLikeButton.bind(this)}>
+            修改wordings
+          </button>
         </div>
       </div>
-    );
+    )
   }
 }
-
-class Game extends React.Component {
-  render () {
-    return (
-      <div className="game">
-        <div className="game-board">
-          <Board />
-        </div>
-        <div className="game-info">
-          <div>{/* status */}</div>
-          <ol>{/* TODO */}</ol>
-        </div>
-      </div>
-    );
-  }
-}
-
-// ========================================
 
 ReactDOM.render(
-  <Game />,
+  <Index />,
   document.getElementById('root')
-);
+)
