@@ -2,14 +2,16 @@
  * @Autor: GeekMzy
  * @Date: 2021-01-29 16:15:11
  * @LastEditors: GeekMzy
- * @LastEditTime: 2021-01-29 16:45:16
- * @FilePath: /MachineGeek2/my-app/src/comment/comment.js
+ * @LastEditTime: 2021-01-30 14:38:53
+ * @FilePath: /MachineGeek2/comment/src/Comment.js
  */
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
 import CommentInput from './CommentInput'
 import CommentList from './CommentList'
+
+import './comment.css'
 
 class Comment extends Component {
   constructor() {
@@ -21,7 +23,7 @@ class Comment extends Component {
   render () {
     return (
       <div>
-        <CommentInput />
+        <CommentInput userName />
         <CommentList commentList={this.state.commentList} />
       </div>
     )

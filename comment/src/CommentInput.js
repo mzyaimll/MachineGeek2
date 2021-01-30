@@ -2,7 +2,7 @@
  * @Autor: GeekMzy
  * @Date: 2021-01-29 16:15:24
  * @LastEditors: GeekMzy
- * @LastEditTime: 2021-01-29 17:02:20
+ * @LastEditTime: 2021-01-30 14:44:40
  * @FilePath: /MachineGeek2/comment/src/CommentInput.js
  */
 
@@ -15,6 +15,23 @@ class CommentInput extends Component {
       userName: '',
       comment: '',
     }
+  }
+  componentWillMount () {
+    let userName = localStorage.getItem('userName')
+    if (userName) {
+      this.setState({
+        userName: userName
+      })
+    }
+    console.log('componentWillMount');
+
+  }
+
+  componentDidMount () {
+    /**
+     * 自动聚焦
+     */
+    this.comment.focus()
   }
 
   onUserNameChange (e) {
@@ -32,10 +49,10 @@ class CommentInput extends Component {
     })
   }
   commentSubmit () {
-    console.log('commentSubmit', this.state);
     if (this.props.onSubmit) {
       const { userName, comment } = this.state
       this.props.onSubmit({ userName, comment })
+      localStorage.setItem('userName', userName)
     }
     this.setState({ content: '' })
   }
@@ -43,8 +60,8 @@ class CommentInput extends Component {
   render () {
     return (
       <div>
-        <span>用户名：<input onChange={this.onUserNameChange.bind(this)} /></span>
-        <span>评论内容：<input onChange={this.onCommentChange.bind(this)} /></span>
+        <span>用户名：<input value={this.state.userName} onChange={this.onUserNameChange.bind(this)} /></span>
+        <span>评论内容：<input value={this.state.comment} ref={(obj) => this.comment = obj} onChange={this.onCommentChange.bind(this)} /></span>
         <button onClick={this.commentSubmit.bind(this)}>提交</button>
       </div>
     )
