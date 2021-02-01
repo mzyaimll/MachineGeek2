@@ -2,7 +2,7 @@
  * @Autor: GeekMzy
  * @Date: 2021-01-29 16:15:24
  * @LastEditors: GeekMzy
- * @LastEditTime: 2021-01-30 14:44:40
+ * @LastEditTime: 2021-01-30 15:15:33
  * @FilePath: /MachineGeek2/comment/src/CommentInput.js
  */
 
@@ -16,15 +16,13 @@ class CommentInput extends Component {
       comment: '',
     }
   }
-  componentWillMount () {
+  UNSAFE_componentWillMount () {
     let userName = localStorage.getItem('userName')
     if (userName) {
       this.setState({
         userName: userName
       })
     }
-    console.log('componentWillMount');
-
   }
 
   componentDidMount () {
@@ -51,7 +49,7 @@ class CommentInput extends Component {
   commentSubmit () {
     if (this.props.onSubmit) {
       const { userName, comment } = this.state
-      this.props.onSubmit({ userName, comment })
+      this.props.onSubmit({ userName, comment, createdTime: +new Date() })
       localStorage.setItem('userName', userName)
     }
     this.setState({ content: '' })
