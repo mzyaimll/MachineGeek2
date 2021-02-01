@@ -2,12 +2,12 @@
  * @Autor: GeekMzy
  * @Date: 2021-02-01 17:30:02
  * @LastEditors: GeekMzy
- * @LastEditTime: 2021-02-01 19:11:26
+ * @LastEditTime: 2021-02-01 19:24:06
  * @FilePath: /MachineGeek2/self-react-redux/src/Content.js
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import ThemeSwitch from './ThemeSwitch'
+import ThemeSwitch from './containers/ThemeSwitch'
 // import { connect } from './connect'
 import { connect } from 'react-redux'
 class Content extends Component {

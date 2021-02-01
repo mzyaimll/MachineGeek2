@@ -2,12 +2,12 @@
  * @Autor: GeekMzy
  * @Date: 2021-02-01 17:28:55
  * @LastEditors: GeekMzy
- * @LastEditTime: 2021-02-01 19:14:57
+ * @LastEditTime: 2021-02-01 19:21:23
  * @FilePath: /MachineGeek2/self-react-redux/src/index.js
  */
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import Header from './Header'
+import Header from './containers/Header'
 import Content from './Content'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'

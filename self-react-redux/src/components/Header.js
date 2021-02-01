@@ -2,15 +2,13 @@
  * @Autor: GeekMzy
  * @Date: 2021-02-01 17:29:57
  * @LastEditors: GeekMzy
- * @LastEditTime: 2021-02-01 19:01:00
- * @FilePath: /MachineGeek2/self-react-redux/src/Header.js
+ * @LastEditTime: 2021-02-01 19:19:45
+ * @FilePath: /MachineGeek2/self-react-redux/src/components/Header.js
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-// import { connect } from './connect'
-import { connect } from 'react-redux'
 
-class Header extends Component {
+export default class Header extends Component {
   static contextTypes = {
     store: PropTypes.object
   }
@@ -26,5 +24,3 @@ const mapStateToProps = (state) => {
     themeColor: state.themeColor
   }
 }
-Header = connect(mapStateToProps)(Header)
-export default Header
