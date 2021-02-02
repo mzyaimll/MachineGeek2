@@ -2,19 +2,19 @@
  * @Autor: GeekMzy
  * @Date: 2021-01-29 16:15:40
  * @LastEditors: GeekMzy
- * @LastEditTime: 2021-02-02 15:52:54
+ * @LastEditTime: 2021-02-02 16:07:38
  * @FilePath: /MachineGeek2/comment/src/components/CommentContent.js
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 class CommentContent extends Component {
-  static defaultProps = {
+  static propTypes = {
     comment: PropTypes.object.isRequired
   }
   constructor() {
     super()
-    this.state = {}
+    this.state = { timeString: '' }
   }
   UNSAFE_componentWillMount () {
     this._updateTimeString()
