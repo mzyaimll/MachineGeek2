@@ -2,8 +2,8 @@
  * @Autor: GeekMzy
  * @Date: 2021-01-29 16:15:40
  * @LastEditors: GeekMzy
- * @LastEditTime: 2021-01-30 15:33:13
- * @FilePath: /MachineGeek2/comment/src/CommentContent.js
+ * @LastEditTime: 2021-02-02 15:52:54
+ * @FilePath: /MachineGeek2/comment/src/components/CommentContent.js
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'

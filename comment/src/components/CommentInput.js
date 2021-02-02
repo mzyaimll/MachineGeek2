@@ -2,26 +2,23 @@
  * @Autor: GeekMzy
  * @Date: 2021-01-29 16:15:24
  * @LastEditors: GeekMzy
- * @LastEditTime: 2021-01-30 15:15:33
- * @FilePath: /MachineGeek2/comment/src/CommentInput.js
+ * @LastEditTime: 2021-02-02 15:41:56
+ * @FilePath: /MachineGeek2/comment/src/components/CommentInput.js
  */
 
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class CommentInput extends Component {
-  constructor() {
-    super()
-    this.state = {
-      userName: '',
-      comment: '',
-    }
+  static propTypes = {
+    userName: PropTypes.any,
+    onSubmit: PropTypes.func,
   }
-  UNSAFE_componentWillMount () {
-    let userName = localStorage.getItem('userName')
-    if (userName) {
-      this.setState({
-        userName: userName
-      })
+  constructor(props) {
+    super(props)
+    this.state = {
+      userName: props.userName,
+      comment: '',
     }
   }
 
@@ -50,7 +47,6 @@ class CommentInput extends Component {
     if (this.props.onSubmit) {
       const { userName, comment } = this.state
       this.props.onSubmit({ userName, comment, createdTime: +new Date() })
-      localStorage.setItem('userName', userName)
     }
     this.setState({ content: '' })
   }

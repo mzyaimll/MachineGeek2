@@ -2,8 +2,8 @@
  * @Autor: GeekMzy
  * @Date: 2021-01-29 16:15:31
  * @LastEditors: GeekMzy
- * @LastEditTime: 2021-01-29 16:52:39
- * @FilePath: /MachineGeek2/comment/src/CommentList.js
+ * @LastEditTime: 2021-02-02 15:47:53
+ * @FilePath: /MachineGeek2/comment/src/components/CommentList.js
  */
 import React, { Component } from 'react'
 import CommentContent from './CommentContent'
