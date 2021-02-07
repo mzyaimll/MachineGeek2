@@ -2,7 +2,7 @@
  * @Autor: GeekMzy
  * @Date: 2021-02-03 14:26:26
  * @LastEditors: GeekMzy
- * @LastEditTime: 2021-02-06 15:27:01
+ * @LastEditTime: 2021-02-07 13:08:40
  * @FilePath: /MachineGeek2/comment/src/wrapWithLoadData.js
  */
 
@@ -24,7 +24,12 @@ export default (WrappedComponent, name) => {
         this.setState({ data })
       }
     }
-
+    /**
+     * @description: 保存数据
+     * @event: 
+     * @param {*} data
+     * @return {*}
+     */
     saveData (data) {
       try {
         localStorage.setItem(name, JSON.stringify(data))
