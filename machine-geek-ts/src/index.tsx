@@ -1,12 +1,22 @@
+/*
+ * @Autor: GeekMzy
+ * @Date: 2021-02-08 13:29:01
+ * @LastEditors: GeekMzy
+ * @LastEditTime: 2021-02-08 21:08:31
+ * @FilePath: /MachineGeek2/machine-geek-ts/src/index.tsx
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
