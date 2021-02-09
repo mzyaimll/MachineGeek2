@@ -2,19 +2,18 @@
  * @Autor: GeekMzy
  * @Date: 2021-02-08 13:21:09
  * @LastEditors: GeekMzy
- * @LastEditTime: 2021-02-09 10:58:31
+ * @LastEditTime: 2021-02-09 11:29:05
  * @FilePath: /machine-geek/src/App.js
  */
 
 
-import { Button } from 'antd'
-import './App.less'
+import GeekMenu from './view/GeekMenu'
+import './App.css'
 
 const App = () => (
   <>
     <div className="App">
-      123123
-      <Button type="primary">123</Button>
+      <GeekMenu></GeekMenu>
     </div>
   </>
 )
