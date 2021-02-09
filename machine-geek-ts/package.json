@@ -159,5 +159,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "@ant-design/icons": "^4.4.0"
   }
 }
