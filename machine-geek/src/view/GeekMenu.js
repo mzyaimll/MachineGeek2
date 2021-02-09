@@ -2,7 +2,7 @@
  * @Autor: GeekMzy
  * @Date: 2021-02-09 11:17:15
  * @LastEditors: GeekMzy
- * @LastEditTime: 2021-02-09 15:33:35
+ * @LastEditTime: 2021-02-09 15:58:51
  * @FilePath: /machine-geek/src/view/GeekMenu.js
  */
 import { Layout, Menu, Breadcrumb } from 'antd';
@@ -53,7 +53,7 @@ const GeekMenu = () => (
 
           </Menu>
         </Sider>
-        <Content style={{ padding: '0 24px', minHeight: 280, background: '#fff' }}>
+        <Content style={{ minHeight: 1000, background: '#fff' }}>
           {routerArr.map((item, i) => (<Route path={item.path} key={i} component={item.component}></Route>))}
         </Content>
       </Layout>
