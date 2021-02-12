@@ -2,7 +2,7 @@
  * @Autor: GeekMzy
  * @Date: 2021-02-09 11:17:15
  * @LastEditors: GeekMzy
- * @LastEditTime: 2021-02-09 15:58:51
+ * @LastEditTime: 2021-02-09 16:57:29
  * @FilePath: /machine-geek/src/view/GeekMenu.js
  */
 import { Layout, Menu, Breadcrumb } from 'antd';
@@ -22,9 +22,9 @@ const GeekMenu = () => (
     <Header className="header">
       <div className="logo" />
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-        <Menu.Item key="1">nav 1</Menu.Item>
-        <Menu.Item key="2">nav 2</Menu.Item>
-        <Menu.Item key="3">nav 3</Menu.Item>
+        <Menu.Item key="1">主页</Menu.Item>
+        <Menu.Item key="2">个人信息</Menu.Item>
+        <Menu.Item key="3">系统管理</Menu.Item>
       </Menu>
     </Header>
     <Content style={{ padding: '0 50px' }}>
