@@ -2,8 +2,8 @@
  * @Autor: GeekMzy
  * @Date: 2021-02-09 14:49:46
  * @LastEditors: GeekMzy
- * @LastEditTime: 2021-02-09 15:54:38
- * @FilePath: /machine-geek/src/view/generate.js
+ * @LastEditTime: 2021-02-15 13:30:55
+ * @FilePath: /machine-geek/src/view/generate/Generate.js
  */
 
 import { Table, Tag, Space } from 'antd';
@@ -50,7 +50,7 @@ const columns = [
     key: 'action',
     render: (text, record) => (
       <Space size="middle">
-        <a>Invite {record.name}</a>
+        <a>Edit</a>
         <a>Delete</a>
       </Space>
     ),
