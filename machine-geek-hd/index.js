@@ -2,7 +2,7 @@
  * @Autor: GeekMzy
  * @Date: 2021-02-09 17:52:13
  * @LastEditors: GeekMzy
- * @LastEditTime: 2021-02-14 20:50:41
+ * @LastEditTime: 2021-02-17 15:39:24
  * @FilePath: /machine-geek-hd/index.js
  */
 
@@ -18,6 +18,7 @@ const app = new Koa()
 
 //要放在路由上面
 app.use(bodyParser())
+//routing挂载
 routing(app)
 app.listen(8000, () => {
   console.log('监听8000端口');
